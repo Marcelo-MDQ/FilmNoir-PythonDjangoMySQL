@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titulo %} Películas {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Películas disponibles</h4>
+        <a class="btn btn-success" href="{% url 'peliculas' %}" role="button">VER TEXTO</a>
+        </br>
+        
+        <div class="row justify-content-md-center">
+
+            {% for pelicula in peliculas %}
+                <div class="col-md-auto">
+                    <a href="{% url 'resenia_Pelicula' pelicula.id %}">
+                    <img class="cajita" src="{{pelicula.imagen}}"  >
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+        
+    </div>
+
+</div> 
+
+{% endblock %}

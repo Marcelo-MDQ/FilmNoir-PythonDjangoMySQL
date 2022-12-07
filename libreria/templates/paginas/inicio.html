@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block contenido %} 
+
+
+<div class="card">
+
+    <div class="card-body">
+        <h4 class="card-title" align="center">Film Noir</h4>
+        <div class="container" align="center">
+             <p>Un sitio homenaje al Film Noir, donde repasamos su historia, los clásicos, 
+                el pre-noir, sus derivados como el neo-noir, el gran polar francés, por qué no 
+                el argentino y el mexicano, no hay cinematografía que no tenga su exponente noir. <br>
+                Una base de películas que comenzó como un juego y ya tiene más de 200 títulos reseñados. <br></p>       
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h4 class="card-title" align="center">Las últimas 3 películas vistas</h4>
+        <div class="container" align="center">
+                    {% for pelicula in peliculas %}
+                        <a href="{% url 'resenia_Pelicula' pelicula.id %}">
+                            <img class="cajita" src="{{pelicula.imagen}}" width="240" >
+                            </a>
+                    {% endfor %}
+        </div>
+    </div>
+</div> 
+
+
+
+{% endblock %}

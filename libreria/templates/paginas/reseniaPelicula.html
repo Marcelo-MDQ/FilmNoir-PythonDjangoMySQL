@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block titulo %} Películas {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-body">
+
+        
+        <div class="container">
+
+            <div class="row">
+                <div class="col-6">
+                    {% if peliculas.id == 1 %}
+                        <img class="img-review" src="https://is.gd/f7Om0R" width="100%" float="right" srcset="">
+                    {% else %}
+                        <img src="{{peliculas.imagen}}" width="100%" float="right" srcset="">
+                    {% endif %}
+                </div>
+
+                <div class="col-6">
+                    <h2 class="card-title">{{ peliculas.nombre.upper }}</h2>
+                    <h4><a href="{% url 'buscar_director' peliculas.director %}">{{ peliculas.director}}</a>, {{ peliculas.anio }}</h4>
+                    <p>
+                        
+                        {% if peliculas.actor_1 %}
+                            <a href="{% url 'buscar_actor' peliculas.actor_1 %}">{{ peliculas.actor_1 }}</a> | 
+                        {% endif %}
+                        {% if peliculas.actor_2 %}
+                            <a href="{% url 'buscar_actor' peliculas.actor_2 %}">{{ peliculas.actor_2 }}</a> | 
+                        {% endif %}
+                        {% if peliculas.actor_3 %}
+                            <a href="{% url 'buscar_actor' peliculas.actor_3 %}">{{ peliculas.actor_3 }}</a> | 
+                        {% endif %}
+                        {% if peliculas.actor_4 %}
+                            <a href="{% url 'buscar_actor' peliculas.actor_4 %}">{{ peliculas.actor_4 }}</a> | 
+                        {% endif %}
+                        {% if peliculas.actor_5 %}
+                            <a href="{% url 'buscar_actor' peliculas.actor_5 %}">{{ peliculas.actor_5 }}</a> | 
+                        {% endif %}
+                        {% if peliculas.actor_6 %}
+                            <a href="{% url 'buscar_actor' peliculas.actor_6 %}">{{ peliculas.actor_6 }}</a>
+                        {% endif %}
+                    </p>
+
+                    {% if peliculas.imdb %}
+                        <a href="{{ peliculas.imdb }}" target="_blank">IMDB</a> 
+                    {% else %}  
+                        IMDB
+                    {% endif %}
+                    <br>
+                    <p>{{ peliculas.resenia }}</p>
+                </div>
+
+                {% if peliculas.id == 0 %}
+                    <div class="container">
+                        <div class="contenedor-imgs-abajo">
+                            <img class="img-review-abajo" src="https://is.gd/T0svHy">
+                            <img class="img-review-abajo" src="https://is.gd/bMcVg8">
+                            <img class="img-review-abajo" src="https://is.gd/fivTFG">
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+        
+    </div>
+
+</div> 
+
+{% endblock %}
