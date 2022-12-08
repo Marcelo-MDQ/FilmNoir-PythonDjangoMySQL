@@ -90,15 +90,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'MarceloMDQ$filmnoir',
-        'USER': 'MarceloMDQ',
-        'PASSWORD': 'Romeo1368',
-        'HOST': 'MarceloMDQ.mysql.pythonanywhere-services.com',
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'MarceloMDQ$filmnoir',
+#        'USER': 'MarceloMDQ',
+#        'PASSWORD': 'Romeo1368',
+#        'HOST': 'MarceloMDQ.mysql.pythonanywhere-services.com',
+#    }
+#}
+
+DATABASES = {  
+   'default': {  
+     'ENGINE': 'django.db.backends.mysql',  
+     'NAME': 'filmnoir',  
+     'USER': 'root',
+     'PASSWORD': '',
+     'HOST': 'localhost',
+     'PORT': 3306,
+     'OPTIONS': {
+        'sql_mode': 'traditional',
+        }
+   }  
+ }
+ 
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
