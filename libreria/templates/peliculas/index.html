@@ -31,9 +31,9 @@
                         <td>{{ pelicula.nombre }}</td>
                         <td>{{ pelicula.anio }}</td>
                         <td>{{ pelicula.imagen }}</td>
-                        <td><img src="{{ pelicula.imagenlocal }}" height="100" />
-                            
-                            
+
+                        {% load static %}
+                        <td><img src="{% static pelicula.imagenlocal %}" height="100" />
                         </td>
                         <td><a name="" id="" class="btn btn-info" href="{% url 'editar' pelicula.id %}" role="button">Editar</a>
                              | <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' pelicula.id %}" role="button" >Borrar</a></td>

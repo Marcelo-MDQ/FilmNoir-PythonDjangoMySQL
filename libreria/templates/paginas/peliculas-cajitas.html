@@ -16,11 +16,17 @@
         <div class="row justify-content-md-center">
 
             {% for pelicula in peliculas %}
-                <div class="col-md-auto">
-                    <a href="{% url 'resenia_Pelicula' pelicula.id %}">
-                    <img class="cajita" src="{{pelicula.imagen}}"  >
-                    </a>
-                </div>
+
+                    {% if pelicula.imagenlocal %}
+                        <div class="col-md-auto">
+
+                            <a href="{% url 'resenia_Pelicula' pelicula.id %}">
+                            {% load static %}
+                            <img class="cajita" src="{% static pelicula.imagenlocal %}">
+                            </a>
+                        </div>
+
+                    {% endif %}
             {% endfor %}
 
         </div>

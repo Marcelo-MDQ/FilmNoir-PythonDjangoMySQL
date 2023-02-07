@@ -21,7 +21,7 @@ class Pelicula(models.Model):
     imdb = models.CharField(max_length=100, default="", blank=True, null=True)
     resenia = models.TextField(verbose_name="Reseña", blank=True, default="", null=True)
     top10 = models.BooleanField(verbose_name="Top", default=False, null=True)
-    imagenlocal = models.ImageField(upload_to='imagenes/', verbose_name="ImagenLocal", null=True)
+    imagenlocal = models.ImageField(upload_to='libreria/static/img', verbose_name="ImagenLocal", null=True)
 
     # para que se vea mejor en la parte de Admin
     def __str__(self):
