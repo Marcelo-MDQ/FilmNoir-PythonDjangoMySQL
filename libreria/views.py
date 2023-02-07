@@ -81,6 +81,10 @@ def peliculascajitas(request):
     peliculas = Pelicula.objects.all().order_by('nombre')
     return render(request, 'paginas/peliculas-cajitas.html', {'peliculas': peliculas})
 
+def peliculasxordenresenia(request):
+    peliculas = Pelicula.objects.all().order_by('id')
+    return render(request, 'paginas/peliculasxordenresenia.html', {'peliculas': peliculas})
+
 def top10(request):
     peliculas = Pelicula.objects.filter(top10=True).all()
     return render(request, 'paginas/top10.html', {'peliculas': peliculas})

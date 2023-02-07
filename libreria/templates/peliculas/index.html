@@ -19,6 +19,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Año</th>
                         <th scope="col">Imagen</th>
+                        <th scope="col">ImagenLocal</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -29,7 +30,8 @@
                         <td scope="row">{{ pelicula.id }}</td>
                         <td>{{ pelicula.nombre }}</td>
                         <td>{{ pelicula.anio }}</td>
-                        <td><img src="{{ pelicula.imagen }}" height="100" />
+                        <td>{{ pelicula.imagen }}</td>
+                        <td><img src="{{ pelicula.imagenlocal }}" height="100" />
                             
                             
                         </td>
