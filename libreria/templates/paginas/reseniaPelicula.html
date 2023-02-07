@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-6">
                     {% if peliculas.imagenlocal %}
-                        <img src="..\..\{{peliculas.imagenlocal}}" width="100%" float="right" srcset="">
+                        <img src="{{ STATIC_ROOT }}/img/{{peliculas.imagenlocal}}" width="100%" float="right" srcset="">
                     {% else %}
                         <img src="{{peliculas.imagen}}" width="100%" float="right" srcset="">
                     {% endif %}
