@@ -10,10 +10,10 @@
     <div class="card-body">
         <h4 class="card-title" align="center">Bienvenidos</h4>
         <div class="container" align="center">
-             <p>Un sitio que pretende ser un pequeño homenaje al Film Noir, donde repasamos su historia, los clásicos, 
-                el pre-noir, sus derivados como el neo-noir, el gran polar francés,  
-                también el noir argentino, el noir mexicano, no hay cinematografía en el mundo que no tenga su propio noir. <br>
-                Una base de películas que comenzó como un juego y ya tiene más de 200 títulos reseñados. <br></p>       
+             <p>
+                La idea original era ver las mejores películas del llamado Cine Negro, <br>
+                pero me gustó mucho el género y acá estamos con más de 200 películas vistas. 
+            </p>       
         </div>
     </div>
 
@@ -22,7 +22,8 @@
         <div class="container" align="center">
                     {% for pelicula in peliculas %}
                         <a href="{% url 'resenia_Pelicula' pelicula.id %}">
-                            <img class="cajita" src="{{pelicula.imagen}}" width="240" >
+                            {% load static %}
+                            <img class="cajita" src="{% static pelicula.imagenlocal %}" width="240">
                             </a>
                     {% endfor %}
         </div>
