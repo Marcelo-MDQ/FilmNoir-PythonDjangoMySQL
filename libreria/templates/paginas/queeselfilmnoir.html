@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block titulo %} Nosotros {% endblock %}
+{% block titulo %} El Film Noir {% endblock %}
 
 {% block contenido %} 
 
@@ -9,7 +9,8 @@
     <div class="row">
 
         <div class="col-6">
-            <img src="https://is.gd/Qaw3xG" width="100%" float="right" >
+            {% load static %}
+            <img src="{% static 'img/James-Ellroy.jpg' %}" width="100%" float="right" >
         </div>
         <div class="col-6">
             <h2>¿Qué es el Film Noir?</h2>
@@ -21,6 +22,44 @@
             <p><b><h2>&nbsp;&nbsp;&nbsp;&nbsp;James Ellroy</h2></b> &nbsp;&nbsp;&nbsp;&nbsp;en el documental <i>"Film Noir bringing darkness to light"</i></p></div>
         </div>
     </div>
+    </br>
+
+    <div class="row">
+        <div class="col-8">
+            <p>Más allá de la frase canchera de Ellroy, uno de los grandes escritores de novela
+                negra de la historia, la verdad es que el término NOIR se lo debemos al crítico 
+                Nino Frank por su artículo del número 61, de agosto de 1946, de L'Ecran français.
+                Bajo el título: "Un nuevo género policiaco: la aventura criminal", Nino Frank 
+                definió así algunas películas americanas, recién estrenadas en Francia, 
+                que le parecían mostrar de manera diferente la violencia física y los 
+                actos delictivos. Las designó como obras de psicología criminal e insistió en 
+                su manera de explotar brillantemente un dinamismo de muerte violenta.
+                Fue durante el verano de 1946 cuando el público francés tuvo la revelación de un 
+                nuevo tipo de cine americano. En pocas semanas, desde mediados de julio hasta finales
+                 de agosto, se sucedieron en las pantallas parisinas cuatro  películas que dieron 
+                 comienzo al noir: 
+                 El halcón maltés de John Huston (31 de julio), 
+                 Laura de Otto Preminger (13 de julio), Murder, my sweet de Edward Dmytrick 
+                 (31 de julio) y Double indemnity de Billy Wilder (31 de julio).
+
+            </p>
+            <p>Fuente: <a target="_blank" href="https://moncinemaamoi.blog/2016/08/28/laventure-criminelle-par-nino-frank/">
+                mon cinéma à moi</a></p>
+        </div>
+        <div class="col-4">
+            {% load static %}
+            <img src="{% static 'img/Nino-Frank.jpg' %}" width="100%" float="left" >
+        </div>
+    </div>
+    </br>
+
+    <div class="row">
+        {% load static %}
+        <img src="{% static 'img/Primera-Nota.jpg' %}" width="100%" float="center" >
+        <p align="center">Artículo original publicado el 28 de agosto de 1946 en el número 61 de L'Ecran français.</p>
+    </div>
+
+
 </div>        
 
 {% endblock %}

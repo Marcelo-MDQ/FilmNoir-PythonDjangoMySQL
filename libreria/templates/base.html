@@ -25,8 +25,12 @@
             <a class="nav-item nav-link active" href="{% url 'inicio' %}" aria-current="page">Inicio <span class="visually-hidden">(current)</span></a>
             <a class="nav-item nav-link" href="{% url 'buscador' %}">Buscador</a>
             <a class="nav-item nav-link" href="{% url 'peliculas' %}">Películas</a>
+
+            <!--
             <a class="nav-item nav-link" href="{% url 'directores' %}">Directores</a>
             <a class="nav-item nav-link" href="{% url 'actores' %}">Actores</a>
+            -->
+
             <a class="nav-item nav-link" href="{% url 'top10' %}">Favoritas</a>
             
             <!--
@@ -42,9 +46,9 @@
             {% endif %}
             -->
             
-            <!---
+            
             <a class="nav-item nav-link" href="{% url 'queeselfilmnoir' %}">¿Qué es el Film Noir?</a>
-            -->
+            
             
         </div>
     </nav>
