@@ -18,26 +18,108 @@
             {% endif %}
         {% endif %}
 
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Nombre (Año, Director)</th>
-                    </tr>
-                </thead>
-                <tbody>
+        {% if actores %}
+            <div class="container" >
+                <br/>
+                <div class="row justify-content-md-center">
 
-                    {% for pelicula in peliculas %}
-                    <tr class="">
-                        <td><a href="{% url 'resenia_Pelicula' pelicula.id %}">
-                            {{ pelicula.nombre }} ({{ pelicula.anio }}, 
-                            {{ pelicula.director }})</a></td>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                    <div class="col-md-auto">
+                        {% for actorindex in actores %}
+                            {% load static %}
+                            <img class="avataractor" src="{% static actorindex.imagenactor %}" >
+                        {% endfor %}
+                    </div>
+
+                    <div class="col-6">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Ordenadas por Año</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for pelicula in peliculas %}
+                                    <tr class="">
+                                        <td><a href="{% url 'resenia_Pelicula' pelicula.id %}">
+                                            {{ pelicula.nombre }} ({{ pelicula.anio }}, 
+                                            {{ pelicula.director }})</a></td>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        {% else %}
+
+            {% if directores %}
+                <div class="container" >
+                    <br/>
+                    <div class="row justify-content-md-center">
+
+                        <div class="col-md-auto">
+                            {% for directorindex in directores %}
+                                {% load static %}
+                                <img class="avataractor" src="{% static directorindex.imagendirector %}" >
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-6">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Ordenadas por Año</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% for pelicula in peliculas %}
+                                        <tr class="">
+                                            <td><a href="{% url 'resenia_Pelicula' pelicula.id %}">
+                                                {{ pelicula.nombre }} ({{ pelicula.anio }}, 
+                                                {{ pelicula.director }})</a></td>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+             {% else %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Ordenadas por Año</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% for pelicula in peliculas %}
+                                <tr class="">
+                                    <td><a href="{% url 'resenia_Pelicula' pelicula.id %}">
+                                        {{ pelicula.nombre }} ({{ pelicula.anio }}, 
+                                        {{ pelicula.director }})</a></td>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                {% endif %}    
+        {% endif %}
         
     </div>
 

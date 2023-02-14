@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Pelicula
+from .models import Actor
+from .models import Director
 from .forms import PeliculaForm
 
 # Create your views here.
@@ -157,8 +159,11 @@ def buscar(request, aBuscar):
 
 def buscarDirector(request, director):
     peliculas = []
-    peliculas = Pelicula.objects.filter(director=director).all().order_by('nombre','anio')
-    return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'director': director})
+    peliculas = Pelicula.objects.filter(director=director).all().order_by('anio', 'nombre')
+
+    directores = []
+    directores = Director.objects.filter(nombredirector=director).all() 
+    return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'director': director, 'directores': directores})
 
 def buscarActor(request, actor):
     peliculas = []
@@ -167,8 +172,11 @@ def buscarActor(request, actor):
     Pelicula.objects.filter(actor_3=actor).all() | 
     Pelicula.objects.filter(actor_4=actor).all() | 
     Pelicula.objects.filter(actor_5=actor).all() | 
-    Pelicula.objects.filter(actor_6=actor).all()).order_by('nombre','anio')
-    return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'actor': actor})
+    Pelicula.objects.filter(actor_6=actor).all()).order_by('anio', 'nombre')
+
+    actores = []
+    actores = Actor.objects.filter(nombreactor=actor).all() 
+    return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'actor': actor, 'actores': actores})
 
 def eliminar(request, id):
     pelicula = Pelicula.objects.get(id=id)

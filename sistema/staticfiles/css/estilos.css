@@ -16,7 +16,7 @@ padding-bottom: 70px; }
 
 /* cajita */
 .cajita {
- 	width: 280px;
+ 	width: 2800px;
 	height: 160px;
 	padding: 2px;
     object-fit: none;
@@ -27,6 +27,15 @@ padding-bottom: 70px; }
 }
 
 
+/* avataractor */
+.avataractor {
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+	float: right;
+ }
+
+ 
 /* imagen izquierda en las reseñas */
 .img-review {
     width: 100%;

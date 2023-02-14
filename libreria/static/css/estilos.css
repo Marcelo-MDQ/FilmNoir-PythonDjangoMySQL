@@ -27,6 +27,15 @@ padding-bottom: 70px; }
 }
 
 
+/* avataractor */
+.avataractor {
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+	float: center;
+ }
+
+
 /* imagen izquierda en las reseñas */
 .img-review {
     width: 100%;

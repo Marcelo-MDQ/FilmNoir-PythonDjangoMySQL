@@ -22,6 +22,10 @@ class Pelicula(models.Model):
     resenia = models.TextField(verbose_name="Reseña", blank=True, default="", null=True)
     top10 = models.BooleanField(verbose_name="Top", default=False, null=True)
     imagenlocal = models.ImageField(upload_to='libreria/static/img', verbose_name="ImagenLocal", null=True)
+    genero = models.CharField(max_length=40, default="", blank=True, null=True)
+    subgenero1 = models.CharField(max_length=40, default="", blank=True, null=True)
+    subgenero2 = models.CharField(max_length=40, default="", blank=True, null=True)
+    subgenero3 = models.CharField(max_length=40, default="", blank=True, null=True)
 
     # para que se vea mejor en la parte de Admin
     def __str__(self):
@@ -34,3 +38,25 @@ class Pelicula(models.Model):
     #    super().delete()
 
 
+class Actor(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombreactor = models.CharField(max_length=100)
+    imagenactor = models.ImageField(upload_to='libreria/static/img', verbose_name="ImagenActor", null=True)
+    textoactor = models.TextField(verbose_name="TextoActor", blank=True, default="", null=True)
+
+    # para que se vea mejor en la parte de Admin
+    def __str__(self):
+        fila = self.nombreactor
+        return fila    
+
+
+class Director(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombredirector = models.CharField(max_length=100)
+    imagendirector = models.ImageField(upload_to='libreria/static/img', verbose_name="ImagenDirector", null=True)
+    textodirector = models.TextField(verbose_name="TextoDirector", blank=True, default="", null=True)
+
+    # para que se vea mejor en la parte de Admin
+    def __str__(self):
+        fila = self.nombredirector
+        return fila    
