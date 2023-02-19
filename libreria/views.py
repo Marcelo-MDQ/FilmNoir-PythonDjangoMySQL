@@ -67,7 +67,7 @@ def buscador(request):
     peliculas = []
     queryset = request.GET.get("buscar")
     if queryset:
-        peliculas = (Pelicula.objects.filter(nombre__icontains=queryset).all() | Pelicula.objects.filter(director__icontains=queryset).all()).order_by('nombre','anio')
+        peliculas = (Pelicula.objects.filter(nombre__icontains=queryset).all() | Pelicula.objects.filter(director__icontains=queryset).all()).order_by('anio', 'nombre')
     return render(request, 'paginas/buscador.html', {'peliculas': peliculas})
 
 @login_required
@@ -154,7 +154,7 @@ def editar(request, id):
     return render(request, 'peliculas/editar.html', {'formulario': formulario})
 
 def buscar(request, aBuscar):
-    peliculas = Pelicula.objects.filter(nombre__icontains=aBuscar).all().order_by('nombre','anio')
+    peliculas = Pelicula.objects.filter(nombre__icontains=aBuscar).all().order_by('anio', 'nombre')
     return render(request, 'peliculas/mostrar.html', {'peliculas': peliculas})
 
 def buscarDirector(request, director):
@@ -172,7 +172,7 @@ def buscarActor(request, actor):
     Pelicula.objects.filter(actor_3=actor).all() | 
     Pelicula.objects.filter(actor_4=actor).all() | 
     Pelicula.objects.filter(actor_5=actor).all() | 
-    Pelicula.objects.filter(actor_6=actor).all()).order_by('anio', 'nombre')
+    Pelicula.objects.filter(actor_6=actor).all()).order_by('nombre', 'anio')
 
     actores = []
     actores = Actor.objects.filter(nombreactor=actor).all() 
