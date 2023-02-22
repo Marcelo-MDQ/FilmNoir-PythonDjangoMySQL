@@ -14,7 +14,7 @@
             {% if director %}
                 <h4 class="card-title">Películas dirigidas por {{ director }}</h4>  
             {% else %}
-                <h4 class="card-title">Películas</h4>
+                <h4 class="card-title">Películas con el texto '{{ buscador }}'</h4>
             {% endif %}
         {% endif %}
 
@@ -134,9 +134,11 @@
 
             <form method="get">
                 <div class="mb-3">
-                <label for="" class="form-label">Ingrese parte del nombre de una película o director</label>
+                <label for="" class="form-label">Ingrese parte del nombre de una película, actor o director</label>
                 <input type="text" value="{{ request.GET.buscar }}"
-                    class="form-control" name="buscar" aria-describedby="helpId" placeholder="">
+                    class="form-control" name="buscar" aria-describedby="helpId" 
+                    placeholder="" minlength="4" maxlength="20">
+
                 </div>
                 <button type="submit" class="btn btn-success">Buscar</button>
             </form>    

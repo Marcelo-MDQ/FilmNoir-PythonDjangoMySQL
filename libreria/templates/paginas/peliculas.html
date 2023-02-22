@@ -17,7 +17,7 @@
 
                     {% for pelicula in peliculas %}
                     
-                    <div class="col-md-auto">{{ pelicula.id }}-<a href="{% url 'resenia_Pelicula' pelicula.id %}">{{ pelicula.nombre }}</a>
+                    <div class="col-md-auto"><a href="{% url 'resenia_Pelicula' pelicula.id %}">{{ pelicula.nombre }}</a>
                     </div>
                     {% endfor %}
 

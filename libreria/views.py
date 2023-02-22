@@ -67,8 +67,16 @@ def buscador(request):
     peliculas = []
     queryset = request.GET.get("buscar")
     if queryset:
-        peliculas = (Pelicula.objects.filter(nombre__icontains=queryset).all() | Pelicula.objects.filter(director__icontains=queryset).all()).order_by('anio', 'nombre')
-    return render(request, 'paginas/buscador.html', {'peliculas': peliculas})
+        peliculas = (Pelicula.objects.filter(nombre__icontains=queryset).all() | 
+            Pelicula.objects.filter(director__icontains=queryset) | 
+            Pelicula.objects.filter(actor_1__icontains=queryset).all() | 
+            Pelicula.objects.filter(actor_2__icontains=queryset).all() | 
+            Pelicula.objects.filter(actor_3__icontains=queryset).all() | 
+            Pelicula.objects.filter(actor_4__icontains=queryset).all() | 
+            Pelicula.objects.filter(actor_5__icontains=queryset).all() | 
+            Pelicula.objects.filter(actor_6__icontains=queryset).all()).order_by('anio', 'nombre')    
+    
+    return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'buscador': queryset})
 
 @login_required
 def abmpeliculas(request):
@@ -172,7 +180,7 @@ def buscarActor(request, actor):
     Pelicula.objects.filter(actor_3=actor).all() | 
     Pelicula.objects.filter(actor_4=actor).all() | 
     Pelicula.objects.filter(actor_5=actor).all() | 
-    Pelicula.objects.filter(actor_6=actor).all()).order_by('nombre', 'anio')
+    Pelicula.objects.filter(actor_6=actor).all()).order_by('anio', 'nombre')
 
     actores = []
     actores = Actor.objects.filter(nombreactor=actor).all() 
