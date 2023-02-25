@@ -15,7 +15,16 @@
         
         <div class="row justify-content-md-center">
 
+            {% with anio_anterior='1930' %}
+            {% endwith %}
+
             {% for pelicula in peliculas %}
+
+                    <!--
+                    {% with anio=pelicula.anio %}
+                    <h4 ">{{ anio }}</h4>
+                    {% endwith %}
+                    -->
 
                     {% if pelicula.imagenlocal %}
                         <div class="col-md-auto">
@@ -27,6 +36,9 @@
                         </div>
 
                     {% endif %}
+
+
+
             {% endfor %}
 
         </div>

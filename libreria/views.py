@@ -88,7 +88,7 @@ def peliculas(request):
     return render(request, 'paginas/peliculas.html', {'peliculas': peliculas})
 
 def peliculascajitas(request):
-    peliculas = Pelicula.objects.all().order_by('nombre')
+    peliculas = Pelicula.objects.all().order_by('anio', 'nombre')
     return render(request, 'paginas/peliculas-cajitas.html', {'peliculas': peliculas})
 
 def peliculasxordenresenia(request):
