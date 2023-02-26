@@ -14,6 +14,7 @@ urlpatterns = [
     path('buscador', views.buscador, name='buscador'),
     path('peliculas', views.peliculas, name='peliculas'),
     path('peliculascajitas', views.peliculascajitas, name='peliculascajitas'),
+    path('peliculasxgenero/<str:genero>', views.peliculasxgenero, name='peliculasxgenero'),
     path('peliculasxordenresenia', views.peliculasxordenresenia, name='peliculasxordenresenia'),
     path('abmpeliculas', views.abmpeliculas, name='abmpeliculas'),
     path('actores', views.actores, name='actores'),

@@ -91,6 +91,10 @@ def peliculascajitas(request):
     peliculas = Pelicula.objects.all().order_by('anio', 'nombre')
     return render(request, 'paginas/peliculas-cajitas.html', {'peliculas': peliculas})
 
+def peliculasxgenero(request, genero):
+    peliculas = Pelicula.objects.filter(genero=genero).all().order_by('anio', 'nombre')
+    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'genero': genero })
+
 def peliculasxordenresenia(request):
     peliculas = Pelicula.objects.all().order_by('id')
     return render(request, 'paginas/peliculasxordenresenia.html', {'peliculas': peliculas})
