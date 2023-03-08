@@ -21,19 +21,35 @@
 
         {% else %}
 
-            <h4 class="card-title">Películas ordenadas alfabéticamente</h4>
-            <a class="btn btn-success" href="{% url 'peliculascajitas' %}" role="button">
-                VER CAJITAS</a>
-            <a class="btn btn-success" href="{% url 'peliculasxordenresenia' %}" role="button">
-                VER LISTADO POR ORDEN DE RESEÑA</a>
-            </br>
+            {% if pais %}
 
-            <div class="row justify-content-md-center">
-                        {% for pelicula in peliculas %}
-                            <div class="col-md-auto"><a href="{% url 'resenia_Pelicula' pelicula.id %}">{{ pelicula.nombre }}</a>
-                            </div>
-                        {% endfor %}
-            </div>
+                <h4 class="card-title">Películas originarias de {{ pais }} ordenadas por año</h4>
+                </br>
+
+                <div class="row justify-content-md-center">
+                    {% for pelicula in peliculas %}
+                        <div class="col-md-auto"><a href="{% url 'resenia_Pelicula' pelicula.id %}">{{ pelicula.nombre }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            {% else %}
+
+                <h4 class="card-title">Películas ordenadas alfabéticamente</h4>
+                <a class="btn btn-success" href="{% url 'peliculascajitas' %}" role="button">
+                    VER CAJITAS</a>
+                <a class="btn btn-success" href="{% url 'peliculasxordenresenia' %}" role="button">
+                    VER LISTADO POR ORDEN DE RESEÑA</a>
+                </br>
+
+                <div class="row justify-content-md-center">
+                            {% for pelicula in peliculas %}
+                                <div class="col-md-auto"><a href="{% url 'resenia_Pelicula' pelicula.id %}">{{ pelicula.nombre }}</a>
+                                </div>
+                            {% endfor %}
+                </div>
+            {% endif %}
+            
         {% endif %}
         
     </div>

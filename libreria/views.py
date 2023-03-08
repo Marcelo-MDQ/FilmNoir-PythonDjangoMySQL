@@ -95,6 +95,10 @@ def peliculasxgenero(request, genero):
     peliculas = Pelicula.objects.filter(genero=genero).all().order_by('anio', 'nombre')
     return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'genero': genero })
 
+def peliculasxpais(request, pais):
+    peliculas = Pelicula.objects.filter(pais=pais).all().order_by('anio', 'nombre')
+    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'pais': pais })
+
 def peliculasxordenresenia(request):
     peliculas = Pelicula.objects.all().order_by('id')
     return render(request, 'paginas/peliculasxordenresenia.html', {'peliculas': peliculas})
@@ -102,6 +106,10 @@ def peliculasxordenresenia(request):
 def top10(request):
     peliculas = Pelicula.objects.filter(top10=True).all()
     return render(request, 'paginas/top10.html', {'peliculas': peliculas})
+
+def listado(request):
+    peliculas = Pelicula.objects.filter(top10=True).all()
+    return render(request, 'paginas/lista-filmnoirboard.html', {'peliculas': peliculas})
 
 def actores(request):
     actores = []

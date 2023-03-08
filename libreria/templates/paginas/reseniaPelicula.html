@@ -22,7 +22,8 @@
 
                 <div class="col-6">
                     <h2 class="card-title">{{ peliculas.nombre.upper }}</h2>
-                    <h4><a href="{% url 'buscar_director' peliculas.director %}">{{ peliculas.director}}</a>
+                    <h4><a href="{% url 'peliculasxpais' peliculas.pais %}">{{ peliculas.pais }}</a> 
+                        <a href="{% url 'buscar_director' peliculas.director %}">{{ peliculas.director}}</a>
                         , {{ peliculas.anio }} 
                         <a href="{% url 'peliculasxgenero' peliculas.genero %}">{{ peliculas.genero }}</a>
                         </h4>
