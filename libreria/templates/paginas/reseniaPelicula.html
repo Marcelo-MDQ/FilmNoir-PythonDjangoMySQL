@@ -6,12 +6,10 @@
 
 <div class="card">
     <div class="card-body">
-
-        
         <div class="container">
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
                     {% if peliculas.imagenlocal %}
                         {% load static %}
                         <img src="{% static peliculas.imagenlocal %}" width="100%" float="right" srcset="">
@@ -20,7 +18,7 @@
                     {% endif %}
                 </div>
 
-                <div class="col-6">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
                     <h2 class="card-title">{{ peliculas.nombre.upper }}</h2>
                     <h4><a href="{% url 'peliculasxpais' peliculas.pais %}">{{ peliculas.pais }}</a> 
                         <a href="{% url 'buscar_director' peliculas.director %}">{{ peliculas.director}}</a>
@@ -44,7 +42,7 @@
                         {% if peliculas.actor_5 %}
                             <a href="{% url 'buscar_actor' peliculas.actor_5 %}">{{ peliculas.actor_5 }}</a> | 
                         {% endif %}
-                        {% if peliculas.actor_6 %}
+                        {% if peliculas.actor_6 %}oir
                             <a href="{% url 'buscar_actor' peliculas.actor_6 %}">{{ peliculas.actor_6 }}</a>
                         {% endif %}
                     </p>
@@ -58,15 +56,6 @@
                     <p>{{ peliculas.resenia }}</p>
                 </div>
 
-                {% if peliculas.id == 0 %}
-                    <div class="container">
-                        <div class="contenedor-imgs-abajo">
-                            <img class="img-review-abajo" src="https://is.gd/T0svHy">
-                            <img class="img-review-abajo" src="https://is.gd/bMcVg8">
-                            <img class="img-review-abajo" src="https://is.gd/fivTFG">
-                        </div>
-                    </div>
-                {% endif %}
             </div>
 
         </div>
