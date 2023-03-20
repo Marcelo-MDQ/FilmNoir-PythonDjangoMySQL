@@ -6,25 +6,18 @@
 
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Películas disponibles</h4>
+        <h4 class="card-title">Posters de las películas disponibles ({{ cantidad }}) (ordenadas por año)</h4>
         <a class="btn btn-success" href="{% url 'peliculas' %}" role="button">
-            VER LISTADO POR ORDEN ALFABETICO</a>
+            ORDENADAS ALFABETICAMENTE</a>
         <a class="btn btn-success" href="{% url 'peliculasxordenresenia' %}" role="button">
-            VER LISTADO POR ORDEN DE RESEÑA</a>
-        </br>
+            ORDENADAS POR FECHA DE RESEÑA</a>
+        <a class="btn btn-success" href="{% url 'peliculasxordenanio' %}" role="button">
+            ORDENADAS POR AÑO</a>
+    </br>
         
         <div class="row justify-content-md-center">
 
-            {% with anio_anterior='1930' %}
-            {% endwith %}
-
             {% for pelicula in peliculas %}
-
-                    <!--
-                    {% with anio=pelicula.anio %}
-                    <h4 ">{{ anio }}</h4>
-                    {% endwith %}
-                    -->
 
                     {% if pelicula.imagenlocal %}
                         <div class="col-md-auto">
@@ -36,8 +29,6 @@
                         </div>
 
                     {% endif %}
-
-
 
             {% endfor %}
 

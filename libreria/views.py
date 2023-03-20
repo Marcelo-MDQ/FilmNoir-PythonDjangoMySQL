@@ -85,31 +85,40 @@ def abmpeliculas(request):
 
 def peliculas(request):
     peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('nombre')
-    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas})
+    cantidad = len(peliculas)
+    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'cantidad': cantidad})
 
 def peliculascajitas(request):
     peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
-    return render(request, 'paginas/peliculas-cajitas.html', {'peliculas': peliculas})
+    cantidad = len(peliculas)
+    return render(request, 'paginas/peliculas-cajitas.html', {'peliculas': peliculas, 'cantidad': cantidad})
 
 def peliculasxgenero(request, genero):
     peliculas = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
-    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'genero': genero })
+    cantidad = len(peliculas)
+    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'genero': genero, 'cantidad': cantidad })
 
 def peliculasxpais(request, pais):
     peliculas = Pelicula.objects.filter(pais=pais).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
-    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'pais': pais })
+    cantidad = len(peliculas)
+    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'pais': pais, 'cantidad': cantidad })
 
 def peliculasxordenresenia(request):
     peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('id')
-    return render(request, 'paginas/peliculasxordenresenia.html', {'peliculas': peliculas})
+    cantidad = len(peliculas)
+    return render(request, 'paginas/peliculasxordenresenia.html', {'peliculas': peliculas, 'cantidad': cantidad})
+
+def peliculasxordenanio(request):
+    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('anio')
+    cantidad = len(peliculas)
+    return render(request, 'paginas/peliculasxordenanio.html', {'peliculas': peliculas, 'cantidad': cantidad})
 
 def top10(request):
     peliculas = Pelicula.objects.filter(top10=True).exclude(resenia__isnull=True).all()
     return render(request, 'paginas/top10.html', {'peliculas': peliculas})
 
 def listado(request):
-    peliculas = Pelicula.objects.filter(top10=True).all()
-    return render(request, 'paginas/lista-filmnoirboard.html', {'peliculas': peliculas})
+    return render(request, 'paginas/lista-filmnoirboard.html')
 
 def actores(request):
     actores = []
@@ -182,7 +191,7 @@ def buscarDirector(request, director):
     peliculas = Pelicula.objects.filter(director=director).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
 
     directores = []
-    directores = Director.objects.filter(nombredirector=director).exclude(resenia__isnull=True).all() 
+    directores = Director.objects.filter(nombredirector=director).all() 
     return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'director': director, 'directores': directores})
 
 def buscarActor(request, actor):
@@ -192,7 +201,7 @@ def buscarActor(request, actor):
     Pelicula.objects.filter(actor_3=actor).all() | 
     Pelicula.objects.filter(actor_4=actor).all() | 
     Pelicula.objects.filter(actor_5=actor).all() | 
-    Pelicula.objects.filter(actor_6=actor).all()).order_by('anio', 'nombre')
+    Pelicula.objects.filter(actor_6=actor).all()).exclude(resenia__isnull=True).order_by('anio', 'nombre')
 
     actores = []
     actores = Actor.objects.filter(nombreactor=actor).all() 
