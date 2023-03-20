@@ -11,7 +11,7 @@ from .forms import PeliculaForm
 
 # Create your views here.
 def inicio(request):
-    peliculas = Pelicula.objects.all().order_by('-id')[:3]
+    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('-id')[:3]
     return render(request, 'paginas/inicio.html', {'peliculas': peliculas})
 
 def registro(request):
@@ -68,13 +68,13 @@ def buscador(request):
     queryset = request.GET.get("buscar")
     if queryset:
         peliculas = (Pelicula.objects.filter(nombre__icontains=queryset).all() | 
-            Pelicula.objects.filter(director__icontains=queryset) | 
+            Pelicula.objects.filter(director__icontains=queryset).all() | 
             Pelicula.objects.filter(actor_1__icontains=queryset).all() | 
             Pelicula.objects.filter(actor_2__icontains=queryset).all() | 
             Pelicula.objects.filter(actor_3__icontains=queryset).all() | 
             Pelicula.objects.filter(actor_4__icontains=queryset).all() | 
             Pelicula.objects.filter(actor_5__icontains=queryset).all() | 
-            Pelicula.objects.filter(actor_6__icontains=queryset).all()).order_by('anio', 'nombre')    
+            Pelicula.objects.filter(actor_6__icontains=queryset).all()).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')    
     
     return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'buscador': queryset})
 
@@ -84,27 +84,27 @@ def abmpeliculas(request):
     return render(request, 'peliculas/index.html', {'peliculas': peliculas})
 
 def peliculas(request):
-    peliculas = Pelicula.objects.all().order_by('nombre')
+    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('nombre')
     return render(request, 'paginas/peliculas.html', {'peliculas': peliculas})
 
 def peliculascajitas(request):
-    peliculas = Pelicula.objects.all().order_by('anio', 'nombre')
+    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
     return render(request, 'paginas/peliculas-cajitas.html', {'peliculas': peliculas})
 
 def peliculasxgenero(request, genero):
-    peliculas = Pelicula.objects.filter(genero=genero).all().order_by('anio', 'nombre')
+    peliculas = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
     return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'genero': genero })
 
 def peliculasxpais(request, pais):
-    peliculas = Pelicula.objects.filter(pais=pais).all().order_by('anio', 'nombre')
+    peliculas = Pelicula.objects.filter(pais=pais).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
     return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'pais': pais })
 
 def peliculasxordenresenia(request):
-    peliculas = Pelicula.objects.all().order_by('id')
+    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('id')
     return render(request, 'paginas/peliculasxordenresenia.html', {'peliculas': peliculas})
 
 def top10(request):
-    peliculas = Pelicula.objects.filter(top10=True).all()
+    peliculas = Pelicula.objects.filter(top10=True).exclude(resenia__isnull=True).all()
     return render(request, 'paginas/top10.html', {'peliculas': peliculas})
 
 def listado(request):
@@ -174,15 +174,15 @@ def editar(request, id):
     return render(request, 'peliculas/editar.html', {'formulario': formulario})
 
 def buscar(request, aBuscar):
-    peliculas = Pelicula.objects.filter(nombre__icontains=aBuscar).all().order_by('anio', 'nombre')
+    peliculas = Pelicula.objects.filter(nombre__icontains=aBuscar).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
     return render(request, 'peliculas/mostrar.html', {'peliculas': peliculas})
 
 def buscarDirector(request, director):
     peliculas = []
-    peliculas = Pelicula.objects.filter(director=director).all().order_by('anio', 'nombre')
+    peliculas = Pelicula.objects.filter(director=director).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
 
     directores = []
-    directores = Director.objects.filter(nombredirector=director).all() 
+    directores = Director.objects.filter(nombredirector=director).exclude(resenia__isnull=True).all() 
     return render(request, 'paginas/buscador.html', {'peliculas': peliculas, 'director': director, 'directores': directores})
 
 def buscarActor(request, actor):
