@@ -61,3 +61,16 @@ class Director(models.Model):
     def __str__(self):
         fila = self.nombredirector
         return fila    
+
+
+class Nota(models.Model):
+    id = models.AutoField(primary_key=True)
+    titulo = models.CharField(max_length=100)
+    enlace = models.CharField(max_length=200)
+    autor = models.CharField(max_length=100)
+    textocorto = models.TextField(verbose_name="TextoCorto", blank=True, default="", null=True)
+
+    # para que se vea mejor en la parte de Admin
+    def __str__(self):
+        fila = self.titulo
+        return fila    

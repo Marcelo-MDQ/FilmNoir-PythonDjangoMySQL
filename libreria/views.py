@@ -7,12 +7,27 @@ from django.contrib.auth.decorators import login_required
 from .models import Pelicula
 from .models import Actor
 from .models import Director
+from .models import Nota
 from .forms import PeliculaForm
+import random
 
 # Create your views here.
 def inicio(request):
+    peliculaportada = Pelicula.objects.exclude(resenia__isnull=True).all()
+    cantidad = len(peliculaportada)
+    portada = random.randrange(1, cantidad+1)+500
+    peliculaportada = Pelicula.objects.get(id=portada)
+    peliculaportadatexto = peliculaportada.resenia[0:200]+'...'
+
+    nota = Nota.objects.all()
+    cantidad = len(nota)
+    notarandom = random.randrange(1, cantidad+1)
+    nota = Nota.objects.get(id=notarandom)
+    print(nota)
+
     peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('-id')[:3]
-    return render(request, 'paginas/inicio.html', {'peliculas': peliculas})
+    return render(request, 'paginas/inicio.html', {'peliculas': peliculas, 'peliculaportada': peliculaportada,
+        'peliculaportadatexto': peliculaportadatexto, 'notaportada': nota})
 
 def registro(request):
 

@@ -20,12 +20,17 @@ padding-bottom: 70px; }
 	height: 160px;
 	padding: 2px;
     object-fit: none;
+	filter: grayscale(100%);
 }
 
 .cajita:hover {
     object-fit: cover;
 }
 
+.filtro-bn{
+	filter: grayscale(100%);
+  }
+  
 
 /* avataractor */
 .avataractor {
