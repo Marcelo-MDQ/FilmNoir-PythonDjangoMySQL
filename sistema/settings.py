@@ -27,13 +27,13 @@ SECRET_KEY = 'django-insecure-(!m1(#qsrm86(qzsi$owwqsnqyj_ovzp*rhw7uygzvon8vf1!q
 #DEBUG = True
 #ALLOWED_HOSTS = ['localhost']
 
-# en produccion marcelomdq
-#DEBUG = False
-#ALLOWED_HOSTS = ['marcelomdq.pythonanywhere.com']
-
 # en produccion filmnoir
 DEBUG = False
 ALLOWED_HOSTS = ['filmnoir.pythonanywhere.com']
+
+# en produccion marcelomdq
+#DEBUG = False
+#ALLOWED_HOSTS = ['marcelomdq.pythonanywhere.com']
 
 # Application definition
 
@@ -96,17 +96,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# base del sitio filmnoir.pythonanywhere.com
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'filmnoir$filmnoir',
-        'USER': 'filmnoir',
-        'PASSWORD': 'Romeo1368',
-        'HOST': 'filmnoir.mysql.pythonanywhere-services.com',
-    }
-}
-
 # base del sitio marcelomdq.pythonanywhere.com
 # #DATABASES = {
 #    'default': {
@@ -117,6 +106,17 @@ DATABASES = {
 #        'HOST': 'MarceloMDQ.mysql.pythonanywhere-services.com',
 #    }
 #}
+
+# base del sitio filmnoir.pythonanywhere.com
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'filmnoir$filmnoir',
+        'USER': 'filmnoir',
+        'PASSWORD': 'Romeo1368',
+        'HOST': 'filmnoir.mysql.pythonanywhere-services.com',
+    }
+}
 
 #DATABASES = {  
 #   'default': {  

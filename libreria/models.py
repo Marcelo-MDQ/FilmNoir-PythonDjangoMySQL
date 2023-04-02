@@ -26,7 +26,7 @@ class Pelicula(models.Model):
     subgenero1 = models.CharField(max_length=40, default="", blank=True, null=True)
     subgenero2 = models.CharField(max_length=40, default="", blank=True, null=True)
     subgenero3 = models.CharField(max_length=40, default="", blank=True, null=True)
-    
+    color = models.BooleanField(verbose_name="Color", default=False, null=True)
 
     # para que se vea mejor en la parte de Admin
     def __str__(self):

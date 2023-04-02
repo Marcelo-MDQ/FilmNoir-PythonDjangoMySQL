@@ -86,7 +86,11 @@
                 {% for pelicula in peliculas %}
                     <a href="{% url 'resenia_Pelicula' pelicula.id %}">
                         {% load static %}
-                        <img class="cajita" src="{% static pelicula.imagenlocal %}" width="240">
+                        {% if pelicula.color %}
+                          <img class="cajita" src="{% static pelicula.imagenlocal %}" width="240">
+                        {% else %}
+                          <img class="cajita filtro-bn" src="{% static pelicula.imagenlocal %}" width="240">
+                        {% endif %}
                         </a>
                 {% endfor %}
     </div>
