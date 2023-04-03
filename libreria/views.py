@@ -23,7 +23,6 @@ def inicio(request):
     cantidad = len(nota)
     notarandom = random.randrange(1, cantidad+1)
     nota = Nota.objects.get(id=notarandom)
-    print(nota)
 
     peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('-id')[:3]
     return render(request, 'paginas/inicio.html', {'peliculas': peliculas, 'peliculaportada': peliculaportada,

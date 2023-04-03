@@ -23,17 +23,50 @@
     <nav class="navbar justify-content-center navbar-expand navbar-dark bg-dark">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'inicio' %}" aria-current="page">Inicio <span class="visually-hidden">(current)</span></a>
-            <a class="nav-item nav-link" href="{% url 'buscador' %}">Buscador</a>
+            <a class="nav-item nav-link" href="{% url 'buscador' %}">BUSCADOR</a>
+
+            <!--
             <a class="nav-item nav-link" href="{% url 'peliculas' %}">Películas</a>
+            -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Películas
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'peliculasxordenanio' %}">x año</a></li>
+                <li><a class="dropdown-item" href="{% url 'peliculas' %}">x orden alfabético</a></li>
+                <li><a class="dropdown-item" href="{% url 'peliculasxordenresenia' %}">x orden de reseña</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'peliculascajitas' %}">POSTERS</a></li>
+              </ul>
+            </li>
 
             <!--
             <a class="nav-item nav-link" href="{% url 'directores' %}">Directores</a>
             <a class="nav-item nav-link" href="{% url 'actores' %}">Actores</a>
-            -->
 
             <a class="nav-item nav-link" href="{% url 'top10' %}">Favoritas</a>
             <a class="nav-item nav-link" href="{% url 'listado' %}">Listados</a>
+
+          -->
+
             
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Listados
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'top10' %}">Mis favoritas</a></li>
+                <li><a class="dropdown-item" href="{% url 'listado' %}">Film Noir Board</a></li>
+                <!--
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                -->
+              </ul>
+            </li>
+
             <!--
             {% if user.is_superuser %}
               <a class="nav-item nav-link" href="{% url 'abmpeliculas' %}">ABM Películas</a>
