@@ -23,7 +23,7 @@
     <nav class="navbar justify-content-center navbar-expand navbar-dark bg-dark">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'inicio' %}" aria-current="page">Inicio <span class="visually-hidden">(current)</span></a>
-            <a class="nav-item nav-link" href="{% url 'buscador' %}">BUSCADOR</a>
+            <a class="nav-item nav-link btn btn-secondary" href="{% url 'buscador' %}">BUSCADOR</a>
 
             <!--
             <a class="nav-item nav-link" href="{% url 'peliculas' %}">Películas</a>
@@ -80,9 +80,10 @@
             {% endif %}
             -->
             
-            
+            <!--
             <a class="nav-item nav-link" href="{% url 'queeselfilmnoir' %}">¿Qué es el Film Noir?</a>
-            
+            -->
+            <a class="nav-item nav-link" href="{% url 'nosotros' %}">El proyecto</a>
             
         </div>
     </nav>

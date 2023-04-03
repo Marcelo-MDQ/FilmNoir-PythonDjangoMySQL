@@ -36,13 +36,13 @@
             {% else %}
 
                 <h4 class="card-title">Películas ordenadas alfabéticamente ({{ cantidad }})</h4>
-                <a class="btn btn-success" href="{% url 'peliculascajitas' %}" role="button">
+                <a class="btn btn-secondary" href="{% url 'peliculascajitas' %}" role="button">
                     POSTERS</a>
-                <a class="btn btn-success" href="{% url 'peliculasxordenresenia' %}" role="button">
+                <a class="btn btn-secondary" href="{% url 'peliculasxordenresenia' %}" role="button">
                     ORDENADAS POR FECHA DE RESEÑA</a>
-                <a class="btn btn-success" href="{% url 'peliculasxordenanio' %}" role="button">
+                <a class="btn btn-secondary" href="{% url 'peliculasxordenanio' %}" role="button">
                     ORDENADAS POR AÑO</a>
-                </br>
+                </br></br>
 
                 <div class="row justify-content-md-center">
                             {% for pelicula in peliculas %}
