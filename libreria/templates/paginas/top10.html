@@ -14,10 +14,13 @@
                         <div class="col-md-auto">
                             <a href="{% url 'resenia_Pelicula' pelicula.id %}">
 
-
                             {% load static %}
-                            <img class="cajita" src="{% static pelicula.imagenlocal %}" >
-                            </a>                        
+                            {% if pelicula.color %}
+                                <img class="cajita" src="{% static pelicula.imagenlocal %}" >
+                            {% else %}
+                                <img class="cajita filtro-bn" src="{% static pelicula.imagenlocal %}" >
+                            {% endif %}
+                        </a>                        
                         </div>
                     {% endfor %}
         </div>
