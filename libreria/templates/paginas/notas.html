@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titulo %} Notas {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Algunas lindas notas que me gustaron</h4>
+        </br>
+
+        <div class="row justify-content-md-left">
+            <ol class="list-unstyled">
+                    {% for nota in notas %}
+                        <div class="col-md-auto">
+                            <li><a target="_blank" href="{{ nota.enlace }}">{{ nota.titulo }}</a> 
+                                por {{ nota.autor }}</li>
+
+                        </div>
+                    {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div> 
+
+{% endblock %}

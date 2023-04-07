@@ -42,14 +42,18 @@
               </ul>
             </li>
 
-            <!--
-            <a class="nav-item nav-link" href="{% url 'directores' %}">Directores</a>
-            <a class="nav-item nav-link" href="{% url 'actores' %}">Actores</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Material
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'notas' %}">Notas</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'actores' %}">Actores</a></li>
+                <li><a class="dropdown-item" href="{% url 'directores' %}">Directores</a></li>
 
-            <a class="nav-item nav-link" href="{% url 'top10' %}">Favoritas</a>
-            <a class="nav-item nav-link" href="{% url 'listado' %}">Listados</a>
-
-          -->
+              </ul>
+            </li>
 
             
 
@@ -83,19 +87,28 @@
             <!--
             <a class="nav-item nav-link" href="{% url 'queeselfilmnoir' %}">¿Qué es el Film Noir?</a>
             -->
-            <a class="nav-item nav-link" href="{% url 'nosotros' %}">El proyecto</a>
+            <a class="nav-item nav-link" href="{% url 'nosotros' %}">EL PROYECTO</a>
             
         </div>
+
+
     </nav>
+
+  
   </header>
 
   <main>
     
+  
     <div class="container" >
+
+
         <br/>
         <div class="row">
-            <div class="col-12">
-                {% block contenido %}  {% endblock %}
+
+
+          <div class="col-12">
+            {% block contenido %}  {% endblock %}
             </div>
         </div>
     </div>        
@@ -104,6 +117,14 @@
 
   </main>
   <footer>
+
+    <div align="center">
+      {% load static %}        
+      <img src="{% static "img\logo-CAC-2.webp" %}" width="120" float="right" srcset="">
+      <img src="{% static "img\PA-logo.svg" %}" width="180" float="right" srcset="">
+    </div>
+    </br>
+
     <!-- place footer here -->
     <!--
       <div class="contenedor-footer">
@@ -121,5 +142,6 @@
     integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
   </script>
 </body>
+
 
 </html>

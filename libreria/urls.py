@@ -13,6 +13,7 @@ urlpatterns = [
     path('queeselfilmnoir', views.queeselfilmnoir, name='queeselfilmnoir'),
     path('buscador', views.buscador, name='buscador'),
     path('peliculas', views.peliculas, name='peliculas'),
+    path('notas', views.notas, name='notas'),
     path('peliculascajitas', views.peliculascajitas, name='peliculascajitas'),
     path('peliculasxgenero/<str:genero>', views.peliculasxgenero, name='peliculasxgenero'),
     path('peliculasxpais/<str:pais>', views.peliculasxpais, name='peliculasxpais'),

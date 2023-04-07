@@ -102,6 +102,11 @@ def peliculas(request):
     cantidad = len(peliculas)
     return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'cantidad': cantidad})
 
+def notas(request):
+    notas = Nota.objects.all().order_by('titulo')
+    cantidad = len(notas)
+    return render(request, 'paginas/notas.html', {'notas': notas, 'cantidad': cantidad})
+
 def peliculascajitas(request):
     peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
     cantidad = len(peliculas)
