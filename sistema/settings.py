@@ -31,10 +31,6 @@ SECRET_KEY = 'django-insecure-(!m1(#qsrm86(qzsi$owwqsnqyj_ovzp*rhw7uygzvon8vf1!q
 DEBUG = False
 ALLOWED_HOSTS = ['filmnoir.pythonanywhere.com']
 
-# en produccion marcelomdq
-#DEBUG = False
-#ALLOWED_HOSTS = ['marcelomdq.pythonanywhere.com']
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -95,17 +91,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-# base del sitio marcelomdq.pythonanywhere.com
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'MarceloMDQ$filmnoir',
-#        'USER': 'MarceloMDQ',
-#        'PASSWORD': 'Romeo1368',
-#        'HOST': 'MarceloMDQ.mysql.pythonanywhere-services.com',
-#    }
-#}
 
 # base del sitio filmnoir.pythonanywhere.com
 DATABASES = {
