@@ -127,6 +127,35 @@ def peliculasxordenresenia(request):
     cantidad = len(peliculas)
     return render(request, 'paginas/peliculasxordenresenia.html', {'peliculas': peliculas, 'cantidad': cantidad})
 
+def peliculasxanioygenero(request):
+    genero = 'NO NOIR'
+    peliculas_nonoir = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
+    cantidad_nonoir = len(peliculas_nonoir)
+
+    genero = 'PRE NOIR'
+    peliculas_prenoir = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
+    cantidad_prenoir = len(peliculas_prenoir)
+
+    genero = 'NOIR'
+    peliculas_noir = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
+    cantidad_noir = len(peliculas_noir)
+
+    genero = 'POST NOIR'
+    peliculas_postnoir = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
+    cantidad_postnoir = len(peliculas_postnoir)
+
+    genero = 'NEO NOIR'
+    peliculas_neonoir = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
+    cantidad_neonoir = len(peliculas_neonoir)
+
+    return render(request, 'paginas/peliculasxanioygenero.html', {
+            'peliculas_nonoir': peliculas_nonoir, 'cantidad_nonoir': cantidad_nonoir,
+            'peliculas_prenoir': peliculas_prenoir, 'cantidad_prenoir': cantidad_prenoir,
+            'peliculas_noir': peliculas_noir, 'cantidad_noir': cantidad_noir,
+            'peliculas_postnoir': peliculas_postnoir, 'cantidad_postnoir': cantidad_postnoir,
+            'peliculas_neonoir': peliculas_neonoir, 'cantidad_neonoir': cantidad_neonoir})
+
+
 def peliculasxordenanio(request):
     peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('anio')
     cantidad = len(peliculas)
