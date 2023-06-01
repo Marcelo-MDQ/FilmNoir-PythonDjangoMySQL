@@ -144,16 +144,24 @@ def peliculasxanioygenero(request):
     peliculas_postnoir = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
     cantidad_postnoir = len(peliculas_postnoir)
 
+    genero = 'POLAR'
+    peliculas_polar = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
+    cantidad_polar = len(peliculas_polar)
+
     genero = 'NEO NOIR'
     peliculas_neonoir = Pelicula.objects.filter(genero=genero).exclude(resenia__isnull=True).all().order_by('anio')
     cantidad_neonoir = len(peliculas_neonoir)
+
+    cantidad_total = cantidad_nonoir + cantidad_prenoir + cantidad_noir + cantidad_postnoir + cantidad_polar + cantidad_neonoir
 
     return render(request, 'paginas/peliculasxanioygenero.html', {
             'peliculas_nonoir': peliculas_nonoir, 'cantidad_nonoir': cantidad_nonoir,
             'peliculas_prenoir': peliculas_prenoir, 'cantidad_prenoir': cantidad_prenoir,
             'peliculas_noir': peliculas_noir, 'cantidad_noir': cantidad_noir,
             'peliculas_postnoir': peliculas_postnoir, 'cantidad_postnoir': cantidad_postnoir,
-            'peliculas_neonoir': peliculas_neonoir, 'cantidad_neonoir': cantidad_neonoir})
+            'peliculas_polar': peliculas_polar, 'cantidad_polar': cantidad_polar,
+            'peliculas_neonoir': peliculas_neonoir, 'cantidad_neonoir': cantidad_neonoir,
+            'cantidad_total': cantidad_total })
 
 
 def peliculasxordenanio(request):
