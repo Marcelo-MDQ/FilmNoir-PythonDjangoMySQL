@@ -211,7 +211,10 @@ def actores(request):
                 actores.append(actor)
 
     actores.sort()
-    return render(request, 'paginas/actores.html', {'actores': actores})
+
+    actores_imgs = Actor.objects.all().order_by('nombreactor') 
+    return render(request, 'paginas/actores.html', {'actores': actores,
+        'actores_imgs': actores_imgs})
 
 def directores(request):
     directores = []
@@ -221,7 +224,11 @@ def directores(request):
         if director not in directores:
             directores.append(director)
     directores.sort()
-    return render(request, 'paginas/directores.html', {'directores': directores})
+
+    directores_imgs = Director.objects.all().order_by('nombredirector') 
+
+    return render(request, 'paginas/directores.html', {'directores': directores,
+        'directores_imgs': directores_imgs})
 
 def crear(request):
     formulario = PeliculaForm(request.POST or None, request.FILES or None)

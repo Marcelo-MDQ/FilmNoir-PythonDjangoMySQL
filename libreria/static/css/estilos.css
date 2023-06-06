@@ -39,6 +39,14 @@ padding-bottom: 70px; }
 	float: center;
  }
 
+.avataractor_chico {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	float: center;
+ }
+
+
 
 /* imagen izquierda en las reseñas */
 .img-review {
