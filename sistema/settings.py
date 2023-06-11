@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'filmnoir$filmnoir',
         'USER': 'filmnoir',
         'PASSWORD': 'Romeo1368',
-        'HOST': 'filmnoir.mysql.pythonanywhere-services.com',
+       'HOST': 'filmnoir.mysql.pythonanywhere-services.com',
     }
 }
 
