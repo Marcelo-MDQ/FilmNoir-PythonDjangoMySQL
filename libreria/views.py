@@ -212,9 +212,20 @@ def actores(request):
 
     actores.sort()
 
-    actores_imgs = Actor.objects.all().order_by('nombreactor') 
+    tipo = 'crack masculino'
+    cracks_m_imgs = Actor.objects.filter(tipo=tipo).all().order_by('nombreactor') 
+
+    tipo = 'crack femenina'
+    cracks_f_imgs = Actor.objects.filter(tipo=tipo).all().order_by('nombreactor') 
+
+    tipo = 'una pelicula'
+    una_pelicula_imgs = Actor.objects.filter(tipo=tipo).all().order_by('nombreactor') 
+
     return render(request, 'paginas/actores.html', {'actores': actores,
-        'actores_imgs': actores_imgs})
+        'cracks_f_imgs': cracks_f_imgs,
+        'cracks_m_imgs': cracks_m_imgs,
+        'una_pelicula_imgs': una_pelicula_imgs
+        })
 
 def directores(request):
     directores = []
