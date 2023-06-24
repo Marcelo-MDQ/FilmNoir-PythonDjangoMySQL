@@ -221,11 +221,23 @@ def actores(request):
     tipo = 'una pelicula'
     una_pelicula_imgs = Actor.objects.filter(tipo=tipo).all().order_by('nombreactor') 
 
+    tipo = 'primera linea femenina'
+    primeralinea_f_imgs = Actor.objects.filter(tipo=tipo).all().order_by('nombreactor') 
+
+    tipo = 'primera linea masculina'
+    primeralinea_m_imgs = Actor.objects.filter(tipo=tipo).all().order_by('nombreactor') 
+
+    tipo = 'secundario'
+    secundario_m_imgs = Actor.objects.filter(tipo=tipo).all().order_by('nombreactor') 
+
     return render(request, 'paginas/actores.html', {'actores': actores,
         'cracks_f_imgs': cracks_f_imgs,
         'cracks_m_imgs': cracks_m_imgs,
-        'una_pelicula_imgs': una_pelicula_imgs
-        })
+        'una_pelicula_imgs': una_pelicula_imgs,
+        'primeralinea_f_imgs': primeralinea_f_imgs,
+        'primeralinea_m_imgs': primeralinea_m_imgs,
+        'secundario_m_imgs': secundario_m_imgs
+                                                        })
 
 def directores(request):
     directores = []
@@ -238,8 +250,13 @@ def directores(request):
 
     directores_imgs = Director.objects.all().order_by('nombredirector') 
 
+    tipo = 'esencial'
+    directores_e_imgs = Director.objects.filter(tipo=tipo).all().order_by('nombredirector') 
+
     return render(request, 'paginas/directores.html', {'directores': directores,
-        'directores_imgs': directores_imgs})
+        'directores_imgs': directores_imgs,
+        'directores_e_imgs': directores_e_imgs
+        })
 
 def crear(request):
     formulario = PeliculaForm(request.POST or None, request.FILES or None)

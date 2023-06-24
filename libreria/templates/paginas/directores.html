@@ -9,6 +9,7 @@
     <div class="card-body">
         <h4 class="card-title">Directores</h4>
 
+        <h4 class="card-title" align="center">ESENCIALES</h4>
         <div class="row justify-content-md-center">
             {% for director_img in directores_imgs %}
                 <div class="col-md-auto">
@@ -21,12 +22,14 @@
         </div>
         <br><br>
 
+        <!--
         <div class="row justify-content-md-center">
                 {% for director in directores %}
                     <div class="col-md-auto"><a href="{% url 'buscar_director' director %}">{{ director }}</a>
                     </div>
                 {% endfor %}
         </div>
+        -->
         
     </div>
 

@@ -57,6 +57,7 @@ class Director(models.Model):
     nombredirector = models.CharField(max_length=100)
     imagendirector = models.ImageField(upload_to='libreria/static/img', verbose_name="ImagenDirector", null=True)
     textodirector = models.TextField(verbose_name="TextoDirector", blank=True, default="", null=True)
+    tipo = models.CharField(max_length=40, default="", blank=True, null=True)
 
     # para que se vea mejor en la parte de Admin
     def __str__(self):
