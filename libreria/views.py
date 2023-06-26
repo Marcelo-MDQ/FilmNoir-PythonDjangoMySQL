@@ -253,9 +253,13 @@ def directores(request):
     tipo = 'esencial'
     directores_e_imgs = Director.objects.filter(tipo=tipo).all().order_by('nombredirector') 
 
+    tipo = 'destacado'
+    directores_d_imgs = Director.objects.filter(tipo=tipo).all().order_by('nombredirector') 
+
     return render(request, 'paginas/directores.html', {'directores': directores,
         'directores_imgs': directores_imgs,
-        'directores_e_imgs': directores_e_imgs
+        'directores_e_imgs': directores_e_imgs,
+        'directores_d_imgs': directores_d_imgs
         })
 
 def crear(request):
