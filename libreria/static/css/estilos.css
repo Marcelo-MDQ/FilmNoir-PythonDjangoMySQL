@@ -19,11 +19,11 @@ padding-bottom: 70px; }
  	width: 280px;
 	height: 160px;
 	padding: 2px;
-    object-fit: none;
+    object-fit: cover;
 }
 
 .cajita:hover {
-    object-fit: cover;
+    object-fit: none;
 }
 
 .filtro-bn{
