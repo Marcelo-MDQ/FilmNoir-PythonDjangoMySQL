@@ -16,6 +16,7 @@ urlpatterns = [
     path('notas', views.notas, name='notas'),
     path('peliculascajitas', views.peliculascajitas, name='peliculascajitas'),
     path('peliculasxgenero/<str:genero>', views.peliculasxgenero, name='peliculasxgenero'),
+    path('peliculasxsubgenero/<str:subgenero>', views.peliculasxsubgenero, name='peliculasxsubgenero'),
     path('peliculasxpais/<str:pais>', views.peliculasxpais, name='peliculasxpais'),
     path('peliculasxordenresenia', views.peliculasxordenresenia, name='peliculasxordenresenia'),
     path('peliculasxordenanio', views.peliculasxordenanio, name='peliculasxordenanio'),

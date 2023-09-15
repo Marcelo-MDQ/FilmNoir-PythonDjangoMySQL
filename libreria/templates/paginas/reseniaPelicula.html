@@ -29,6 +29,17 @@
                         , {{ peliculas.anio }} 
                         <a href="{% url 'peliculasxgenero' peliculas.genero %}">{{ peliculas.genero }}</a>
                         </h4>
+                        <p>
+                            {% if peliculas.subgenero1 %}
+                                <a href="{% url 'peliculasxsubgenero' peliculas.subgenero1 %}">{{ peliculas.subgenero1 }}</a>
+                            {% endif %}
+                            {% if peliculas.subgenero2 %}
+                                <a href="{% url 'peliculasxsubgenero' peliculas.subgenero2 %}">{{ peliculas.subgenero2 }}</a>
+                            {% endif %}
+                            {% if peliculas.subgenero3 %}
+                                <a href="{% url 'peliculasxsubgenero' peliculas.subgenero3 %}">{{ peliculas.subgenero3 }}</a>
+                            {% endif %}                                                
+                        </p>
                     <p>
                         
                         {% if peliculas.actor_1 %}

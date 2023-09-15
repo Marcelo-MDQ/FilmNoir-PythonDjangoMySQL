@@ -117,6 +117,15 @@ def peliculasxgenero(request, genero):
     cantidad = len(peliculas)
     return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'genero': genero, 'cantidad': cantidad })
 
+def peliculasxsubgenero(request, subgenero):
+    peliculas = []
+    peliculas = (Pelicula.objects.filter(subgenero1=subgenero).all() | 
+        Pelicula.objects.filter(subgenero2=subgenero).all() | 
+        Pelicula.objects.filter(subgenero3=subgenero)).all().exclude(resenia__isnull=True).order_by('anio', 'nombre')
+
+    cantidad = len(peliculas)
+    return render(request, 'paginas/peliculas.html', {'peliculas': peliculas, 'subgenero': subgenero, 'cantidad': cantidad })
+
 def peliculasxpais(request, pais):
     peliculas = Pelicula.objects.filter(pais=pais).exclude(resenia__isnull=True).all().order_by('anio', 'nombre')
     cantidad = len(peliculas)
