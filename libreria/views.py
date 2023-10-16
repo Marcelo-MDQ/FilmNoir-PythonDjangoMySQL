@@ -24,8 +24,23 @@ def inicio(request):
     notarandom = random.randrange(1, cantidad+1)
     nota = Nota.objects.get(id=notarandom)
 
-    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('-id')[:3]
-    return render(request, 'paginas/inicio.html', {'peliculas': peliculas, 'peliculaportada': peliculaportada,
+    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('-id')[2:5]
+
+    peliculaultima = Pelicula.objects.exclude(resenia__isnull=True).all()
+    cantidad = len(peliculaultima)
+    portada = cantidad+500
+    peliculaultima = Pelicula.objects.get(id=portada)
+    peliculaultimatexto = peliculaultima.resenia[0:400]+'...'
+
+    peliculassinresenia = Pelicula.objects.filter(vista=True).exclude(resenia__isnull=False).all()
+    peliculasproximamente = Pelicula.objects.filter(vista=False).exclude(resenia__isnull=False).all()
+
+    return render(request, 'paginas/inicio.html', {'peliculas': peliculas, 
+        'peliculassinresenia': peliculassinresenia, 
+        'peliculasproximamente': peliculasproximamente, 
+        'peliculaultima': peliculaultima,
+        'peliculaultimatexto': peliculaultimatexto, 
+        'peliculaportada': peliculaportada,
         'peliculaportadatexto': peliculaportadatexto, 'notaportada': nota})
 
 def registro(request):
