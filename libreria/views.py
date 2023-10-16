@@ -24,7 +24,7 @@ def inicio(request):
     notarandom = random.randrange(1, cantidad+1)
     nota = Nota.objects.get(id=notarandom)
 
-    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('-id')[2:5]
+    peliculas = Pelicula.objects.exclude(resenia__isnull=True).all().order_by('-id')[1:4]
 
     peliculaultima = Pelicula.objects.exclude(resenia__isnull=True).all()
     cantidad = len(peliculaultima)
