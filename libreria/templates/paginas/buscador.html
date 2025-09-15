@@ -25,8 +25,7 @@
 
                         <div class="col-md-auto">
                             {% for actorindex in actores %}
-                                {% load static %}
-                                <img class="avataractor" src="{% static actorindex.imagenactor %}" >
+                                <img class="avataractor" src="{{ actorindex.imagenactor.url }}" >
                             {% endfor %}
                         </div>
 
@@ -75,8 +74,7 @@
 
                             <div class="col-md-auto">
                                 {% for directorindex in directores %}
-                                   {% load static %}
-                                    <img class="avataractor" src="{% static directorindex.imagendirector %}" >
+                                    <img class="avataractor" src="{{ directorindex.imagendirector.url }}" >
                                 {% endfor %}
                             </div>
 
